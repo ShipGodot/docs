@@ -6,7 +6,7 @@
     @Volume(name: "Prerequisites") {
       @Chapter(name: "Getting Started") {
           @Image(source: "application-brackets.svg", alt: "Add an accessible description for your image here.")
-          @TutorialReference(tutorial: "doc:page-01")
+          @TutorialReference(tutorial: "doc:getting-started")
       }
     }
     @Volume(name: "Project Setup") {

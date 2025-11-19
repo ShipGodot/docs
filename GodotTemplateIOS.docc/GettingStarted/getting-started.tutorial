@@ -1,0 +1,69 @@
+@Tutorial() {
+    @Intro(title: "Prerequisites") {
+        In this section, you’ll prepare everything required to get started with the template project.
+        Once these steps are completed, you’ll be fully prepared to download the project and begin building your iOS game.
+        @Image(source: "account-check.svg", alt: "Account check pictogram")
+    }
+    @Section(title: "Preparing your Accounts") {
+        @ContentAndMedia {
+            Before using the template, you’ll need an Apple Developer account, a GitHub account, and to purchase access to the template on Gumroad. Once set up, you’ll be ready to start building your iOS game.
+            @Image(source: "account-check.svg", alt: "Account check pictogram")
+        }
+        @Steps {
+            ### Create an Apple Developer Account
+            @Step {
+                Visit Apple’s developer website, create an Apple ID (or sign in with your existing one), and follow the enrollment steps.  
+                *Note: Apple requires an annual membership fee of about $99 USD per year.*
+                @Image(source: "apple-developer-enroll.png", alt: "Apple developer portal web page")
+            }
+            ### Create a GitHub Account
+            @Step {
+                To access the template project and use the provided automated workflows, you'll need a GitHub account.
+                @Image(source: "github-signup.png", alt: "GitHub sign up web page")
+            }
+            ### Buy Access to the Template on Gumroad
+            @Step {
+                **TODO: add this part of the tutorial when ready**
+            }
+        }
+    }
+    @Section(title: "Create a Repository for Certificates and Provisioning Profiles") {
+        @ContentAndMedia {
+            To use the template’s automated code signing system, you’ll need to create an empty private GitHub repository to store your certificates and provisioning profiles.
+            The template relies on Fastlane Match, which follows the best-practice approach outlined in [codesigning.guide](https://codesigning.guide).
+            Once this repository is set up, the template can access it during the build process without you having to manage the files manually.
+            @Image(source: "file-sign.svg", alt: "File signing pictogram")
+        }
+        @Steps {
+            ### Create a new Repository
+            @Step {
+                Log in to your GitHub account and navigate to the page for creating a new repository.
+                @Image(source: "github-create-certs.png", alt: "GitHub create repository page")
+            }
+            @Step {
+                Give the repository a clear name.  
+                (for example, **apple-developer-certificates**)
+                @Image(source: "github-create-certs-name.png", alt: "GitHub create repository page")
+            }
+            @Step {
+                Set the repository visibility to Private.
+                @Image(source: "github-create-certs-visibility.png", alt: "GitHub create repository page")
+            }
+            @Step {
+                Leave the remaining settings at their default values.
+                @Image(source: "github-create-certs-rest.png", alt: "GitHub create repository page")
+            }
+        }
+    }
+    @Section(title: "Storing Your Project Credentials") {
+        @ContentAndMedia {
+            Each time you set up a new project using the template, you’ll need to provide several GitHub secrets such as Apple Developer API key,
+            deploy key for the certificates repository, and other sensitive values.
+            To keep everything secure and easy to reuse, it’s best to store these credentials in a password manager—GNU Pass works well for this.
+            Since many of these values will be reused across multiple projects and workflows,
+            having them safely stored means you can quickly reference and paste them whenever
+            you initialize a new game project.
+            @Image(source: "lock-check.svg", alt: "Lock check pictogram")
+        }
+    }
+}
