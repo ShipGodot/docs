@@ -35,7 +35,6 @@
             @Image(source: "file-sign.svg", alt: "File signing pictogram")
         }
         @Steps {
-            ### Create a new Repository
             @Step {
                 Log in to your GitHub account and navigate to the page for creating a new repository.
                 @Image(source: "github-create-certs.png", alt: "GitHub create repository page")
@@ -59,7 +58,7 @@
         @ContentAndMedia {
             Each time you set up a new project using the template, you’ll need to provide several GitHub secrets such as Apple Developer API key,
             deploy key for the certificates repository, and other sensitive values.
-            To keep everything secure and easy to reuse, it’s best to store these credentials in a password manager—GNU Pass works well for this.
+            To keep everything secure and easy to reuse, it’s best to store these credentials in a password manager—[Pass](https://www.passwordstore.org/) works well for this.
             Since many of these values will be reused across multiple projects and workflows,
             having them safely stored means you can quickly reference and paste them whenever
             you initialize a new game project.
