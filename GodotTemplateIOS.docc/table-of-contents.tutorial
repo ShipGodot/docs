@@ -5,27 +5,31 @@
     }
     @Volume(name: "Prerequisites") {
       @Chapter(name: "Getting Started") {
-          @Image(source: "application-brackets.svg", alt: "Add an accessible description for your image here.")
+          @Image(source: "application-brackets.svg", alt: "")
           @TutorialReference(tutorial: "doc:getting-started")
+      }
+      @Chapter(name: "Setting Up Your Reusable Credentials") {
+          @Image(source: "password.svg", alt: "")
+          @TutorialReference(tutorial: "doc:reusable-credentials")
       }
     }
     @Volume(name: "Project Setup") {
       @Chapter(name: "Using the template as a starting point for a new project") {
-          @Image(source: "archive-plus.svg", alt: "Add an accessible description for your image here")
+          @Image(source: "archive-plus.svg", alt: "")
           @TutorialReference(tutorial: "doc:page-02")
       }
       @Chapter(name: "Using the template on an existing project") {
-          @Image(source: "archive-edit.svg", alt: "Add an accessible description for your image here")
+          @Image(source: "archive-edit.svg", alt: "")
           @TutorialReference(tutorial: "doc:page-03")
       }
     }
     @Volume(name: "Publishing and Beta Testing") {
       @Chapter(name: "Beta testing with TestFlight") {
-          @Image(source: "test-tube.svg", alt: "Add an accessible description for your image here")
+          @Image(source: "test-tube.svg", alt: "")
           @TutorialReference(tutorial: "doc:page-04")
       }
       @Chapter(name: "Publishing to Appstore") {
-          @Image(source: "currency-usd.svg", alt: "Add an accessible description for your image here")
+          @Image(source: "currency-usd.svg", alt: "")
           @TutorialReference(tutorial: "doc:page-05")
       }
     }
