@@ -1,0 +1,150 @@
+@Tutorial() {
+    @Intro(title: "Setting Up Your Game Project") {
+        In this chapter, we'll walk through the process of configuring your Godot project for the ShipGodot pipeline,
+        setting up a deployment repository from the provided template, and connecting the two together.
+        To guide you through the process, we'll be using the Multitouch Cubes demo from Godot's official demo projects as our example.
+    }
+    @Section(title: "Getting Your Godot Project Ready") {
+        @ContentAndMedia {
+            You'll make the necessary changes to your Godot project's export settings and configuration so it integrates cleanly with ShipGodot's pipeline.
+            By the end, your project will be ready to be built and deployed to the App Store.
+            @Image(source: "project-edit.svg", alt: "Editing project - pictogram")
+        }
+        @Steps {
+            @Step {
+                In Godot, navigate to **Project > Project Settings** while your project is open.
+                @Image(source: "project_config_00.png", alt: "Godot - Project Settings")
+            }
+            @Step {
+                Go to **Rendering > Renderer** and make sure the rendering method is set to at least **Mobile**.
+                **gl_compatibility** works poorly on iOS and should be avoided.
+                @Image(source: "project_config_01.png", alt: "Godot - Rendering > Renderer settings")
+            }
+            @Step {
+                Go to **Rendering > Textures**, enable **Advanced Settings**, and set **Import ETC2 ASTC** to true.
+                @Image(source: "project_config_02.png", alt: "Godot - Rendering > Textures")
+            }
+            @Step {
+                Go to **Application > Config** and set a version number using format of three period-separated integers.
+                For example 0.0.1. Each number represents **Major**, **Minor**, and **Patch** respectively.  
+                **Important:** You'll need to increment the version number every time you want to upload a new build.
+                @Image(source: "project_config_03.png", alt: "Godot - Application > Config")
+            }
+            @Step {
+                Navigate to **Project > Export** and add an **iOS** export preset.
+                @Image(source: "project_config_04.png", alt: "Godot - Project > Export")
+            }
+            @Step {
+                Set **App Store Team ID** to **DO NOT EDIT**.  
+                @Image(source: "project_config_05.png", alt: "Godot - Export Presets > App Store Team ID")
+            }
+            @Step {
+                Set **Provisioning Profile UUID Release** to **DO NOT EDIT**.
+                @Image(source: "project_config_06.png", alt: "Godot - Export Presets > Provisioning Profile UUID Release")
+            }
+            @Step {
+                Set **Bundle Identifier** to **DO NOT EDIT**.
+                **Note:** The **DO NOT EDIT** values will be automatically replaced by the pipeline during the deployment workflow.
+                @Image(source: "project_config_07.png", alt: "Godot - Export Presets > Bundle Identifier")
+            }
+            @Step {
+                Set **Export Project Only** to true.
+                @Image(source: "project_config_08.png", alt: "Godot - Export Presets > Export Project Only")
+            }
+        }
+    }
+    @Section(title: "Setting Up the Deployment Repository") {
+        @ContentAndMedia {
+            In this section, you'll create your own deployment repository from the shipgodot-ios template.
+            This repository will hold all the scripts and configuration needed to automatically build and deploy your game.
+            @Image(source: "source-repository-multiple.svg", alt: "Repository template - pictogram")
+        }
+        @Steps {
+            @Step {
+                Navigate to the *shipgodot-ios* repository on GitHub.
+                @Image(source: "using_template_00.png", alt: "GitHub - Template repository page")
+            }
+            @Step {
+                Click the **Use this template** button in the repository header and select **Create a new repository** from the dropdown.
+                @Image(source: "using_template_01.png", alt: "GitHub - Template repository page")
+            }
+            @Step {
+                Enter a name for your repository — a good convention is your game's name followed by a '-deploy' suffix.
+                @Image(source: "using_template_02.png", alt: "GitHub - Repository creation page")
+            }
+            @Step {
+                Add a description or leave it empty.
+                @Image(source: "using_template_03.png", alt: "GitHub - Repository creation page")
+            }
+            @Step {
+                Set the repository visibility to **Private**.  
+                **Note:** The license requires that repositories created from this template remain **Private**.
+                @Image(source: "using_template_04.png", alt: "GitHub - Repository creation page")
+            }
+            @Step {
+                Click *Create repository* and wait for it to be generated.
+                @Image(source: "using_template_05.png", alt: "GitHub - Repository generating")
+            }
+            @Step {
+                Your deployment repository is set up.
+                @Image(source: "using_template_06.png", alt: "GitHub - Repository created from the template")
+            }
+        }
+    }
+    @Section(title: "Connecting Your Project to the Deployment Repository") {
+        @ContentAndMedia {
+            In this section, you'll add your Godot project files to the deployment repository.
+            You can either add them directly or link your existing project repository as a submodule — whichever works best for you.
+            @Image(source: "connection.svg", alt: "Connection - pictogram")
+        }
+        @Steps {
+            @Step {
+                In the deployment repository, locate the game directory.
+                This is where your Godot project files need to live, with game acting as the root directory of your project.
+                @Image(source: "connect_project_0.png", alt: "GitHub - Repository created from the template")
+            }
+            @Step {
+                If you're not familiar with Git, the easiest way is to drag and drop your project files directly into the game directory on GitHub,
+                then commit the changes.
+                @Image(source: "connect_project_00.png", alt: "")
+            }
+            @Step {
+                **Note:** If you're adding your files by dragging and dropping, or directly via Git, you can skip the rest of this section.
+                @Image(source: "connect_project_01.png", alt: "")
+            }
+            @Step {
+                The recommended approach is to keep your project files in a separate repository and link it to the deployment repository as a Git submodule.
+                @Image(source: "connect_project_02.png", alt: "")
+            }
+            @Step {
+                Start by deleting the game directory from the deployment repository.
+                @Code(name: "git rm", file: "connect_project_03.sh")
+            }
+            @Step {
+                Add your project repository as a submodule using the following command,
+                replacing the link with the one pointing to your own repository:
+                @Code(name: "git submodule", file: "connect_project_04.sh")
+            }
+            @Step {
+                Commit and push the changes to your deployment repository.
+                @Code(name: "git commit and push", file: "connect_project_04b.sh")
+            }
+            @Step {
+                Generate a SSH deploy key for your game repository as shown in [Reusable Credentials](<doc:reusable-credentials#GitHub-Certificates-Repository-Credentials>).
+                @Image(source: "connect_project_05.png", alt: "")
+            }
+            @Step {
+                Navigate to ⚙️ **Settings** in your game repository and select **Deploy Keys**.
+                @Image(source: "connect_project_06.png", alt: "")
+            }
+            @Step {
+                Provide a title for the key, then paste the generated public key (the file ending in .pub) into the Key field.
+                @Image(source: "connect_project_08.png", alt: "")
+            }
+            @Step {
+                Save the private key in your password manager as **GAME_REPO_KEY**.
+                @Image(source: "connect_project_08.png", alt: "")
+            }
+        }
+    }
+}

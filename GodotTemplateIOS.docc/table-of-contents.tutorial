@@ -14,13 +14,9 @@
       }
     }
     @Volume(name: "Project Setup") {
-      @Chapter(name: "Using the template as a starting point for a new project") {
+      @Chapter(name: "Setting Up Your Game Project") {
           @Image(source: "archive-plus.svg", alt: "")
-          @TutorialReference(tutorial: "doc:page-02")
-      }
-      @Chapter(name: "Using the template on an existing project") {
-          @Image(source: "archive-edit.svg", alt: "")
-          @TutorialReference(tutorial: "doc:page-03")
+          @TutorialReference(tutorial: "doc:set-up")
       }
     }
     @Volume(name: "Publishing and Beta Testing") {
