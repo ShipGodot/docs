@@ -3,30 +3,24 @@
       Workflows for automated iOS signing, provisioning, and deployment to App Store & TestFlight — no Mac required.
       @Image(source: logo.png, alt: "An illustration of an a godot logo inside an iPad and an iPhone.")
     }
-    @Volume(name: "Prerequisites") {
-      @Chapter(name: "Getting Started") {
-          @Image(source: "application-brackets.svg", alt: "")
-          @TutorialReference(tutorial: "doc:getting-started")
-      }
-      @Chapter(name: "Setting Up Your Reusable Credentials") {
-          @Image(source: "password.svg", alt: "")
-          @TutorialReference(tutorial: "doc:reusable-credentials")
-      }
+    @Chapter(name: "Getting Started") {
+        @Image(source: "application-brackets.svg", alt: "")
+        @TutorialReference(tutorial: "doc:getting-started")
     }
-    @Volume(name: "Project Setup") {
-      @Chapter(name: "Setting Up Your Game Project") {
-          @Image(source: "archive-plus.svg", alt: "")
-          @TutorialReference(tutorial: "doc:set-up")
-      }
+    @Chapter(name: "Setting Up Your Reusable Credentials") {
+        @Image(source: "password.svg", alt: "")
+        @TutorialReference(tutorial: "doc:reusable-credentials")
     }
-    @Volume(name: "Publishing and Beta Testing") {
-      @Chapter(name: "Beta testing with TestFlight") {
-          @Image(source: "test-tube.svg", alt: "")
-          @TutorialReference(tutorial: "doc:page-04")
-      }
-      @Chapter(name: "Publishing to Appstore") {
-          @Image(source: "currency-usd.svg", alt: "")
-          @TutorialReference(tutorial: "doc:page-05")
-      }
+    @Chapter(name: "Setting Up Your Game Project") {
+        @Image(source: "archive-plus.svg", alt: "")
+        @TutorialReference(tutorial: "doc:set-up")
+    }
+    @Chapter(name: "Beta testing with TestFlight") {
+        @Image(source: "test-tube.svg", alt: "")
+        @TutorialReference(tutorial: "doc:page-04")
+    }
+    @Chapter(name: "Publishing to Appstore") {
+        @Image(source: "currency-usd.svg", alt: "")
+        @TutorialReference(tutorial: "doc:page-05")
     }
 }
