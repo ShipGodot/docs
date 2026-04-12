@@ -1,6 +1,6 @@
-@Tutorials(name: "Godot iOS Template") {
+@Tutorials(name: "ShipGodot iOS") {
     @Intro(title: "Supercharge Your Godot Pipeline: Auto-Build & Publish to iOS") {
-      A boilerplate Godot project with GitHub Actions workflows for automated iOS signing, provisioning, and deployment to App Store & TestFlight — no Mac required.
+      Workflows for automated iOS signing, provisioning, and deployment to App Store & TestFlight — no Mac required.
       @Image(source: logo.png, alt: "An illustration of an a godot logo inside an iPad and an iPhone.")
     }
     @Volume(name: "Prerequisites") {
