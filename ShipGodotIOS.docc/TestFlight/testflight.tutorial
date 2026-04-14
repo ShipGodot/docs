@@ -1,0 +1,247 @@
+@Tutorial() {
+    @Intro(title: "Beta Testing with TestFlight") {
+        In this chapter, you'll go through everything needed to get your first build live on TestFlight.
+        You'll create your app on App Store Connect, configure all the required secrets in your deployment repository,
+        generate the necessary certificates and provisioning profiles, and finally trigger the pipeline to build and upload your game automatically.
+    }
+    @Section(title: "Creating Your App on Apple Platforms") {
+        @ContentAndMedia {
+            In this section, you'll register your app's unique identifier in your Apple Developer account and create the app entry on App Store Connect that will receive your builds.
+            @Image(source: "gamepad-square.svg", alt: "Gamepad - pictogram")
+        }
+        @Steps {
+            @Step {
+                Open your [Apple Developer account](https://developer.apple.com/account) dashboard and navigate to
+                the **Identifiers** section within **Certificates, IDs & Profiles**.
+                @Image(source: "create_app_00.png", alt: "Apple Developer Account Dashboard")
+            }
+            @Step {
+                Click the + button to add a new identifier.
+                @Image(source: "create_app_01.png", alt: "Apple Developer Portal - Certificates, IDs & Profiles")
+            }
+            @Step {
+                Select **App IDs** and click **Continue**.
+                @Image(source: "create_app_02.png", alt: "Apple Developer Portal - App IDs")
+            }
+            @Step {
+                Make sure **App** is selected as the type and click **Continue**.
+                @Image(source: "create_app_03.png", alt: "Apple Developer Portal - Create App ID")
+            }
+            @Step {
+                Fill in the **Description** field with something that clearly identifies your app — this is only visible to your team.
+                @Image(source: "create_app_04.png", alt: "Apple Developer Portal - Create App ID")
+            }
+            @Step {
+                Fill in the **Bundle ID** using the reverse domain name format: `com.companyname.appname`.  
+                **NOTE:** If you don't own a domain, you can use your GitHub subdomain instead: `com.github.yourusername.appname`
+                @Image(source: "create_app_05.png", alt: "Apple Developer Portal - Create App ID")
+            }
+            @Step {
+                Save the **Bundle ID** in your password manager as **APPLE_BUNDLE_IDENTIFIER**, then click Register.
+                @Image(source: "create_app_06.png", alt: "Apple Developer Portal - Create App ID")
+            }
+            @Step {
+                Go back to your [Apple Developer account](https://developer.apple.com/account) and navigate to the **Apps** section within **App Store Connect**.
+                @Image(source: "create_app_08.png", alt: "Apple Developer Account Dashboard")
+            }
+            @Step {
+                Click the + button and select **New App** from the dropdown.
+                @Image(source: "create_app_09.png", alt: "Apple Connect - Apps")
+            }
+            @Step {
+                Select **iOS** as the platform and enter your app's name.
+                @Image(source: "create_app_10.png", alt: "Apple Connect - Create App")
+            }
+            @Step {
+                Select your app's primary language.
+                @Image(source: "create_app_11.png", alt: "Apple Connect - Create App")
+            }
+            @Step {
+                Select the Bundle ID you just registered.
+                @Image(source: "create_app_12.png", alt: "Apple Connect - Create App")
+            }
+            @Step {
+                Enter a unique **SKU** for your app — this is an internal identifier visible only to you and your team.
+                @Image(source: "create_app_13.png", alt: "Apple Connect - Create App")
+            }
+            @Step {
+                Set **User Access** according to your team's needs, then click **Create**.
+                @Image(source: "create_app_14.png", alt: "Apple Connect - Create App")
+            }
+            @Step {
+                Your app is now ready to receive its first build via ShipGodot's pipeline.
+                @Image(source: "create_app_15.png", alt: "Apple Connect - App dashboard")
+            }
+        }
+    }
+    @Section(title: "Configuring Repository Secrets") {
+        @ContentAndMedia {
+            In this section, you'll add all the credentials saved in your password manager to your deployment repository.
+            These secrets allow the pipeline to authenticate with Apple's services and access all the resources it needs to build and deploy your game.
+            @Image(source: "folder-key.svg", alt: "Credentials - pictogram")
+        }
+        @Steps {
+            @Step {
+                Open the deployment repository on GitHub and select **Settings** from the top menu.
+                @Image(source: "secrets_00.png", alt: "GitHub - Deployment repository")
+            }
+            @Step {
+                In the settings menu, select **Secrets and variables** > **Actions** from the left sidebar.
+                @Image(source: "secrets_01.png", alt: "GitHub - Repository settings page")
+            }
+            @Step {
+                Add the credentials from your password manager as repository secrets by clicking the **New repository secret** button.
+                @Image(source: "secrets_02.png", alt: "GitHub - Repository secrets page (empty)")
+            }
+            @Step {
+                Add the **APPLE_API_ISSUER_ID** secret.
+                @Image(source: "secrets_03.png", alt: "GitHub - Adding the APPLE_API_ISSUER_ID repository secret")
+            }
+            @Step {
+                Add the **APPLE_API_KEY** secret.
+                @Image(source: "secrets_04.png", alt: "GitHub - Adding the APPLE_API_KEY repository secret")
+            }
+            @Step {
+                Add the **APPLE_API_KEY_ID** secret.
+                @Image(source: "secrets_05.png", alt: "GitHub - Adding the APPLE_API_KEY_ID repository secret")
+            }
+            @Step {
+                Add the **APPLE_DEVELOPER_EMAIL** secret.
+                @Image(source: "secrets_06.png", alt: "GitHub - Adding the APPLE_DEVELOPER_EMAIL repository secret")
+            }
+            @Step {
+                Add the **APPLE_TEAM_ID** secret.
+                @Image(source: "secrets_07.png", alt: "GitHub - Adding the APPLE_TEAM_ID repository secret")
+            }
+            @Step {
+                Add the **CERT_REPO_KEY** secret.
+                @Image(source: "secrets_08.png", alt: "GitHub - Adding the CERT_REPO_KEY repository secret")
+            }
+            @Step {
+                Add the **CERT_REPO_PASSWORD** secret.
+                @Image(source: "secrets_09.png", alt: "GitHub - Adding the CERT_REPO_PASSWORD repository secret")
+            }
+            @Step {
+                Add the **CERT_REPO_URL** secret.
+                @Image(source: "secrets_10.png", alt: "GitHub - Adding the CERT_REPO_URL repository secret")
+            }
+            @Step {
+                Add the **APPLE_BUNDLE_IDENTIFIER** secret.
+                @Image(source: "secrets_11.png", alt: "GitHub - Adding the CERT_REPO_URL repository secret")
+            }
+            @Step {
+                If your game project lives in a separate repository, add the **GAME_REPO_KEY** secret as well.
+                @Image(source: "secrets_12.png", alt: "GitHub - Adding the CERT_REPO_URL repository secret")
+            }
+            @Step {
+                Verify that all secrets have been added with the exact names shown in the example.
+                @Image(source: "secrets_13.png", alt: "GitHub - Repository secrets page (with added secrets)")
+            }
+        }
+    }
+    @Section(title: "Generating Certificates and Provisioning Profiles") {
+        @ContentAndMedia {
+            In this section, you'll run the pipeline for the first time to generate everything Apple needs to verify that your app is legitimate and safe to install.
+            This only needs to be done once (for each project) — the only reason to run it again is if you add new capabilities to your app, such as push notifications or iCloud support.
+            @Image(source: "certificate.svg", alt: "Certificates - pictogram")
+        }
+        @Steps {
+            @Step {
+                Open the deployment repository on GitHub and select **Actions** from the top menu.
+                @Image(source: "provisioning_profiles_00.png", alt: "GitHub - Deployment repository")
+            }
+            @Step {
+                Click **All Workflows**.
+                @Image(source: "provisioning_profiles_01.png", alt: "GitHub - Actions tab")
+            }
+            @Step {
+                Select **Update Provisioning Profiles and Certificates** workflow.
+                @Image(source: "provisioning_profiles_02.png", alt: "GitHub - Workflows selection")
+            }
+            @Step {
+                Click **Run workflow**.
+                @Image(source: "provisioning_profiles_03.png", alt: "GitHub - Running Update Provisioning Profiles and Certificates workflow")
+            }
+            @Step {
+                Wait for the `manage-certs` job to complete.
+                @Image(source: "provisioning_profiles_04.png", alt: "GitHub - Workflow progress")
+            }
+            @Step {
+                If you've followed all the previous steps correctly,
+                you should see a green checkmark indicating that your certificates and provisioning profiles have been generated and stored successfully.
+                If you see a red cross, double-check that all secrets from the previous section have been added correctly.
+                @Image(source: "provisioning_profiles_05.png", alt: "GitHub - Workflow complete")
+            }
+        }
+    }
+    @Section(title: "Export, Build and Upload to TestFlight") {
+        @ContentAndMedia {
+            In this section, you'll trigger the pipeline to export, build, and upload your game to TestFlight, then invite your first testers so they can start playing it on their iOS devices.
+            @Image(source: "airplane.svg", alt: "Airplane - pictogram")
+        }
+        @Steps {
+            @Step {
+                Open your deployment repository on GitHub and navigate to **Actions**.
+                @Image(source: "testflight_00.png", alt: "GitHub - Actions tab")
+            }
+            @Step {
+                Select the **Distribute to TestFlight** workflow from the **All Workflows** menu.
+                @Image(source: "testflight_01.png", alt: "GitHub - All Workflows menu")
+            }
+            @Step {
+                Select the Godot version you are using, then click **Run Workflow**.  
+                **Note:** Only stable Godot releases are supported.
+                @Image(source: "testflight_02.png", alt: "GitHub - Run Distribute to TestFlight workflow")
+            }
+            @Step {
+                Wait for all jobs to complete.
+                @Image(source: "testflight_03.png", alt: "GitHub - Workflow progress")
+            }
+            @Step {
+                If you've followed all the previous steps correctly, you should see green checkmarks indicating that your game has been exported, built, and uploaded successfully.  
+                If you see a red cross, double-check that all secrets have been added correctly and that your app has been created on App Store Connect.
+                @Image(source: "testflight_04.png", alt: "GitHub - Workflow success")
+            }
+            @Step {
+                Head to your app page on App Store Connect and select **TestFlight** from the top menu.
+                @Image(source: "testflight_05.png", alt: "App Store Connect - TestFlight")
+            }
+            @Step {
+                Your freshly uploaded build should be visible here.
+                @Image(source: "testflight_06.png", alt: "App Store Connect - TestFlight")
+            }
+            @Step {
+                Navigate to the **Testers** section and click the + button to create a new internal testing group.
+                @Image(source: "testflight_07.png", alt: "App Store Connect - Testers")
+            }
+            @Step {
+                Give it a name — for example: `internal``
+                @Image(source: "testflight_08.png", alt: "App Store Connect - Create Internal Testing Group")
+            }
+            @Step {
+                Add your testers to it.
+                @Image(source: "testflight_09.png", alt: "App Store Connect - Create Internal Testing Group")
+            }
+            @Step {
+                You should see the testers added to the group.
+                @Image(source: "testflight_10.png", alt: "App Store Connect - Internal Testing Group")
+            }
+            @Step {
+                All testers will receive an email invitation to test the app.
+                @Image(source: "testflight_11.png", alt: "Email invitation")
+            }
+            @Step {
+                Follow the instructions to accept the invite.
+                @Image(source: "testflight_12.png", alt: "Email invitation")
+            }
+            @Step {
+                Your game is now ready to be tested on an iOS device.
+                @Image(source: "testflight_13.png", alt: "TestFlight on iOS")
+            }
+            @Step {
+                Here's the Multitouch Cubes demo running on an iPad mini — made possible with ShipGodot!
+                @Image(source: "testflight_14.png", alt: "Multitouch cubes demo on iOS")
+            }
+        }
+    }
+}
