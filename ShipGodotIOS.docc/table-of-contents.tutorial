@@ -19,8 +19,8 @@
         @Image(source: "test-tube.svg", alt: "")
         @TutorialReference(tutorial: "doc:testflight")
     }
-    @Chapter(name: "Publishing to Appstore") {
+    @Chapter(name: "Shipping Your Game to the App Store") {
         @Image(source: "currency-usd.svg", alt: "")
-        @TutorialReference(tutorial: "doc:page-05")
+        @TutorialReference(tutorial: "doc:appstore")
     }
 }

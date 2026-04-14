@@ -1,0 +1,82 @@
+@Tutorial() {
+    @Intro(title: "Shipping Your Game to the App Store") {
+        In this chapter, you'll go through the full cycle of deploying updates to your testers, and when the time feels right, publishing your game to the App Store for the world to play.
+    }
+    @Section(title: "Continuous Deployment to TestFlight") {
+        @ContentAndMedia {
+            In this section, you'll go through the full cycle of making a change to your game and deploying it to TestFlight.
+            From this point on, this is all it takes to get a new build in front of your testers.
+            @Image(source: "airplane-edit.svg", alt: "Airplane - pictogram")
+        }
+        @Steps {
+            @Step {
+                For the sake of this tutorial, let's make a small change to the Multitouch Cubes demo by modifying the background color.
+                @Image(source: "cd_00.png", alt: "Godot - Project Settings")
+            }
+            @Step {
+                Before anything else, increment the version number in **Project > Project Settings > Application > Config**  
+                — every new build uploaded to TestFlight must have a higher version number than the previous one.
+                @Image(source: "cd_01.png", alt: "Godot - Project Settings")
+            }
+            @Step {
+                If you're using drag and drop, upload the changed files directly to the game directory on GitHub.
+                @Image(source: "cd_02.png", alt: "GitHub - Drag and Drop Files")
+            }
+            @Step {
+                If you're using submodules, make sure to update the submodule reference in the deployment repository to point to the new commit.
+                @Code(name: "Commit and update in the Deployment repository", file: "cd_03.sh")
+            }
+            @Step {
+                Open your deployment repository on GitHub and navigate to **Actions**.
+                @Image(source: "cd_04.png", alt: "GitHub - Deployment repository")
+            }
+            @Step {
+                Select the **Distribute to TestFlight** workflow from the **All Workflows** menu.
+                @Image(source: "cd_06.png", alt: "GitHub - Distribute to TestFlight")
+            }
+            @Step {
+                Select the Godot version you are using, then click **Run Workflow**.  
+                **Note:** Only stable Godot releases are supported.
+                @Image(source: "cd_07.png", alt: "GitHub - Distribute to TestFlight")
+            }
+            @Step {
+                Wait for all jobs to complete.
+                @Image(source: "cd_08.png", alt: "GitHub - Distribute to TestFlight")
+            }
+            @Step {
+                The updated build should appear in the TestFlight app shortly after.
+                @Image(source: "cd_09.png", alt: "Multitouch Cubes Demo changed on iPad mini")
+            }
+        }
+    }
+    @Section(title: "Publishing to the App Store") {
+        @ContentAndMedia {
+            When your testing is complete and you have a build on TestFlight that you're happy with, publishing it to the App Store is just a few steps away.
+            @Image(source: "cash.svg", alt: "Cash - pictogram")
+        }
+        @Steps {
+            @Step {
+                Head to your app page on App Store Connect.
+                @Image(source: "appstore_00.png", alt: "Apple Connect - App Dashboard")
+            }
+            @Step {
+                Scroll down to click **Add Build**.
+                @Image(source: "appstore_01.png", alt: "Apple Connect - App Dashboard")
+            }
+            @Step {
+                Select the build you are satisfied with from your TestFlight builds.
+                @Image(source: "appstore_02.png", alt: "Apple Connect - App Dashboard")
+            }
+            @Step {
+                Fill in all the required screenshots and descriptions, then click **Add for Review** when your page feels ready.  
+                **Note:** The App Store review process can take up to a week.
+                @Image(source: "appstore_03.png", alt: "Apple Connect - App Dashboard")
+            }
+        }
+    }
+    @Section(title: "Congratulations!") {
+        @ContentAndMedia {
+            Thank you for using ShipGodot — your game is now live on the App Store! We hope it's the first of many. Good luck with your future projects, and happy shipping!
+            @Image(source: "rocket.svg", alt: "Rocket - pictogram")
+        }
+}
