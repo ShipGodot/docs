@@ -1,5 +1,5 @@
 @Tutorial() {
-    @Intro(title: "Prerequisites") {
+    @Intro(title: "Getting Started") {
         In this section, you’ll prepare everything required to get started with ShipGodot.
         Once these steps are completed, you’ll be fully prepared to use the project and begin building your dream iOS game.
         @Image(source: "account-check.svg", alt: "Account check pictogram")

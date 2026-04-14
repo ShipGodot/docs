@@ -3,24 +3,24 @@
       Workflows for automated iOS signing, provisioning, and deployment to App Store & TestFlight — no Mac required.
       @Image(source: logo.png, alt: "An illustration of an a godot logo inside an iPad and an iPhone.")
     }
-    @Chapter(name: "Getting Started") {
-        @Image(source: "application-brackets.svg", alt: "")
+    @Chapter(name: "Prerequisites") {
+        @Image(source: "application-brackets.svg", alt: "Application Brackets - Pictogram")
         @TutorialReference(tutorial: "doc:getting-started")
     }
-    @Chapter(name: "Setting Up Your Reusable Credentials") {
-        @Image(source: "password.svg", alt: "")
+    @Chapter(name: "Credentials") {
+        @Image(source: "password.svg", alt: "Password - Pictogram")
         @TutorialReference(tutorial: "doc:reusable-credentials")
     }
-    @Chapter(name: "Setting Up Your Game Project") {
-        @Image(source: "archive-plus.svg", alt: "")
+    @Chapter(name: "Project Setup") {
+        @Image(source: "archive-plus.svg", alt: "Archive - Pictogram")
         @TutorialReference(tutorial: "doc:set-up")
     }
-    @Chapter(name: "Beta testing with TestFlight") {
-        @Image(source: "test-tube.svg", alt: "")
+    @Chapter(name: "Beta Testing") {
+        @Image(source: "test-tube.svg", alt: "Test Tube - Pictogram")
         @TutorialReference(tutorial: "doc:testflight")
     }
-    @Chapter(name: "Shipping Your Game to the App Store") {
-        @Image(source: "currency-usd.svg", alt: "")
+    @Chapter(name: "Shipping") {
+        @Image(source: "currency-usd.svg", alt: "Currency - Pictogram")
         @TutorialReference(tutorial: "doc:appstore")
     }
 }
