@@ -1,7 +1,7 @@
-@Tutorials(name: "ShipGodot iOS") {
-    @Intro(title: "Supercharge Your Godot Pipeline: Auto-Build & Publish to iOS") {
-      Workflows for automated iOS signing, provisioning, and deployment to App Store & TestFlight — no Mac required.
-      @Image(source: logo.png, alt: "An illustration of an a godot logo inside an iPad and an iPhone.")
+@Tutorials(name: "ShipGodot") {
+    @Intro(title: "Ship your Godot game to iOS — no Mac required.") {
+      Learn how to set up ShipGodot for automatic export, signing, and publishing of your Godot game to TestFlight & App Store in a single push.  
+      No Xcode headaches. No certificate nightmares. Just follow the steps.
     }
     @Chapter(name: "Prerequisites") {
         @Image(source: "application-brackets.svg", alt: "Application Brackets - Pictogram")
