@@ -6,7 +6,7 @@
     }
     @Section(title: "Preparing your Accounts") {
         @ContentAndMedia {
-            Before using ShipGodot, you’ll need an Apple Developer account, a GitHub account, and to purchase access to the template on Gumroad. Once set up, you’ll be ready to start building your iOS game.
+            Before using ShipGodot, you’ll need an Apple Developer account, a GitHub account, and to purchase access to the template. Once set up, you’ll be ready to start building your iOS game.
             @Image(source: "account-check.svg", alt: "Account check pictogram")
         }
         @Steps {
@@ -23,7 +23,7 @@
             }
             ### Buy Access to the ShipGodot iOS repository
             @Step {
-                **TODO: add this part of the tutorial when ready**
+                Coming Soon!
             }
         }
     }
