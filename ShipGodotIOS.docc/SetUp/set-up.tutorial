@@ -39,8 +39,8 @@
                 @Image(source: "project_config_05.png", alt: "Godot - Export Presets > App Store Team ID")
             }
             @Step {
-                Set **Provisioning Profile UUID Release** to **DO NOT EDIT**.
-                @Image(source: "project_config_06.png", alt: "Godot - Export Presets > Provisioning Profile UUID Release")
+                Set **Provisioning Profile Specifier Release** to **DO NOT EDIT**.
+                @Image(source: "project_config_06.png", alt: "Godot - Export Presets > Provisioning Profile Specifier Release")
             }
             @Step {
                 Set **Bundle Identifier** to **DO NOT EDIT**.
