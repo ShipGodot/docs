@@ -23,7 +23,20 @@
             }
             ### Buy Access to the ShipGodot iOS repository
             @Step {
-                Coming Soon!
+                Head to [shipgodot.com](https://shipgodot.com) and purchase access.
+                @Image(source: "shipgodot_01.png", alt: "ShipGodot landing page")
+            }
+            @Step {
+                After a successful purchase, you'll be redirected to the redeem page. Redeem your license and connect it with your GitHub account to unlock access.
+                @Image(source: "shipgodot_02.png", alt: "ShipGodot redeem page")
+            }
+            @Step {
+                If everything went smoothly, you'll land on the success page.
+                @Image(source: "shipgodot_03.png", alt: "ShipGodot success page")
+            }
+            @Step {
+                Check your email — you should find an invite to the private repository.
+                @Image(source: "shipgodot_04.png", alt: "ShipGodot email invite")
             }
         }
     }
