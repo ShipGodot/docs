@@ -61,7 +61,7 @@
         }
         @Steps {
             @Step {
-                Navigate to the *shipgodot-ios* repository on GitHub.
+                Navigate to shipgodot-ios repository on GitHub — the one you were invited to (subscription) or set up yourself (Snapshot).
                 @Image(source: "using_template_00.png", alt: "GitHub - Template repository page")
             }
             @Step {

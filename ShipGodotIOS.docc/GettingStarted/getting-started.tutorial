@@ -27,7 +27,11 @@
                 @Image(source: "shipgodot_01.png", alt: "ShipGodot landing page")
             }
             @Step {
-                After a successful purchase, you'll be redirected to the redeem page. Redeem your license and connect it with your GitHub account to unlock access.
+                If you bought the Snapshot, extract the archive and set up your own template repository by following the README.md inside it.
+                @Image(source: "shipgodot_01.png", alt: "ShipGodot landing page")
+            }
+            @Step {
+                After purchasing a subscription, you'll be redirected to the redeem page. Redeem your license and connect it with your GitHub account to unlock repository access.
                 @Image(source: "shipgodot_02.png", alt: "ShipGodot redeem page")
             }
             @Step {
