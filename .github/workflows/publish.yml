@@ -1,0 +1,19 @@
+name: Trigger docs publish
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger shipgodot.com deployment
+        env:
+          GH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
+        run: |
+          gh workflow run deploy.yml \
+            --repo ShipGodot/shipgodot.github.io \
+            --ref master \
+            --field version="${GITHUB_REF_NAME}"
